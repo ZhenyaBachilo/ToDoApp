@@ -1,16 +1,16 @@
 
-import React, { Component } from "react";
-
+import React from "react";
 import '../styles/App.css';
+import {ToDoBody} from './ToDoBody';
 
-class App extends Component {
+
+class App extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Заработало!!))</h1>
-            </div>
+            
+                <ToDoBody/>
+             
         );
     }
 }
-
 export default App;
