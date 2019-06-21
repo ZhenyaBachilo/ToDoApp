@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export class ListItems extends React.Component {
+export class CategoryListItems extends React.Component {
     
     render(){
         return(  

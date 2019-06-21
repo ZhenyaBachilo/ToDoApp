@@ -2,7 +2,6 @@ import {C} from '../constants/constants';
 
 
 export const TaskReducer = (state = [], action) => {
-  
     switch (action.type) {
         case C.ADD_TASK:
             return ([...state,

@@ -1,14 +1,15 @@
 import React from 'react';
 import Form from '../components/Form';
-import {List} from '../components/List';
 import {connect} from 'react-redux';
-import {addTaskAction} from '../state-management/actions/actions'
+import {addTaskAction} from '../state-management/actions/actions';
+import {ToDoList} from '../components/ToDoList';
 
 
 function ToDos(props) {
     return(
         <div className='toDosField'>
             <Form headerText={'Add new Task'} add={props.addTask}/>
+            <ToDoList tasks={props.tasks}/>
         </div>
     )
 }
