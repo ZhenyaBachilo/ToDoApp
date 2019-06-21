@@ -5,7 +5,6 @@ export const addCategoryAction = categoryName => ({
     type: C.ADD_CATEGORY,
     categoryName,
     id: uniqid(),
-    tasks: [],
     filter: C.SHOW_ALL,
     selected: true
 });
@@ -21,4 +20,13 @@ export const addTaskAction = (text) => {
         id: uniqid(),
         completed: false
     });
+}
+
+export const selectedCategoryId = (categoryId) => {
+    return(
+        {
+            type: C.SELECTED_CATEGORY,
+            selectedCategoryId: categoryId
+        }
+    );
 }
