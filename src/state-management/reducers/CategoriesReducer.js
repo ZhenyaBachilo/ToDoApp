@@ -3,7 +3,7 @@ import { C } from '../constants/constants';
 
 const initialState = [];
 
-export const addCategoryReducer = (state = initialState, action) => {
+export const CategoriesReducer = (state = initialState, action) => {
     switch (action.type) {
         case C.ADD_CATEGORY:
             return ([...state,

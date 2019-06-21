@@ -1,15 +1,18 @@
 
 import React from "react";
 import '../styles/App.css';
-import {ToDoBody} from './ToDoBody';
+import Categories from '../containers/Categories';
+import ToDos from '../containers/ToDos';
 
 
 class App extends React.Component {
     render() {
         return (
-            
-                <ToDoBody/>
-             
+            <div className="mainApp">
+                <Categories/>
+                <ToDos/>
+            </div>
+                  
         );
     }
 }

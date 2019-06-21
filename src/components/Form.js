@@ -1,28 +1,30 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {addCategoryAction} from '../state-management/actions/actions'
 
 
-class Form extends React.Component {
+export default class Form extends React.Component {
     constructor(props){
         super(props);
         this.state={
             value: ""
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        // не получается сделать стрелочными!!!
     }
 
-    handleChange(event){
+    handleChange = (event) => {
         this.setState(
             {value:event.target.value}
         )
     }
 
-    handleSubmit(event){
+    handleSubmit = (event)=> {
         event.preventDefault();
-        this.props.addCategoryAction(this.state.value);
+
+        if(!this.state.value.trim()) {
+            this.setState({
+                value:''
+            });
+            return;
+        }
+        this.props.add(this.state.value);
         this.setState({
             value:''
         })
@@ -31,7 +33,7 @@ class Form extends React.Component {
     render(){
         return(
             <form onSubmit ={this.handleSubmit}>
-                <label>Add new Category
+                <label><span>{this.props.headerText}</span>
                     <input type='text' onChange={this.handleChange} value={this.state.value}></input>
                 </label>
                 <button>Add</button>
@@ -40,12 +42,3 @@ class Form extends React.Component {
     }
 }
 
-const mapDispatchToProps = {
-            addCategoryAction:addCategoryAction
-}
-
-
-
-export default connect(null,
-    mapDispatchToProps
-    )(Form);

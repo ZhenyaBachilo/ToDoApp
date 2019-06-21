@@ -1,4 +1,19 @@
-h1 {
-    color: #27aedb;
-    text-align: center;
+.mainApp{
+    border: 1px solid black;
+    width:80%;
+    height:600px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.categoryField{
+    width: 40%;
+    background-color: lightblue;
+    height:100%;
+}
+
+.toDosField{
+    background-color: lightyellow;
+    height:100%;
+    width: 60%;
 }
