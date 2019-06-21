@@ -8,8 +8,8 @@ export const TaskReducer = (state = [], action) => {
             {
                 text: action.text,
                 id: action.id,
-                completed: action.completed,
-                
+                completed: false,
+                selectedCategoryId:action.selectedCategoryId
             }
             ])
             

@@ -13,12 +13,13 @@ export const addCategoryAction = categoryName => ({
 
 
 
-export const addTaskAction = (text) => {
+export const addTaskAction = (text,categoryId) => {
     return({
         type: C.ADD_TASK,
         text,
         id: uniqid(),
-        completed: false
+        completed:'',
+        selectedCategoryId: categoryId
     });
 }
 
@@ -29,4 +30,11 @@ export const selectedCategoryId = (categoryId) => {
             selectedCategoryId: categoryId
         }
     );
+}
+
+export const toggleToDoComplete = (id)=>{
+    return({
+        type: C.TOGGLE_TODO,
+        id
+    })
 }

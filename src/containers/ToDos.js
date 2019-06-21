@@ -8,7 +8,7 @@ import {ToDoList} from '../components/ToDoList';
 function ToDos(props) {
     return(
         <div className='toDosField'>
-            <Form headerText={'Add new Task'} add={props.addTask}/>
+            <Form categoryId={props.categoryId} headerText={'Add new Task'} add={props.addTask}/>
             <ToDoList tasks={props.tasks}/>
         </div>
     )
@@ -18,7 +18,8 @@ const mapDispatchToProps = {
 }
 const mapStateToProps = (state) => {
     return {
-        tasks: state.TaskReducer
+        tasks: state.TaskReducer,
+        categoryId: state.selectedCategoryIdReducer
     }
 }
 

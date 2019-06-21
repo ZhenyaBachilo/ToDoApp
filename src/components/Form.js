@@ -24,7 +24,7 @@ export default class Form extends React.Component {
             });
             return;
         }
-        this.props.add(this.state.value);
+        this.props.add(this.state.value, this.props.categoryId );
         this.setState({
             value:''
         })
