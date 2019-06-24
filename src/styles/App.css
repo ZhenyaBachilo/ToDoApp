@@ -17,3 +17,17 @@
     height:100%;
     width: 60%;
 }
+
+.activeCategory{
+    color: red;
+}
+
+.completedTask{
+    text-decoration:line-through;
+    color:red;
+}
+
+.activeCategoryItem{
+    font-size: 2em;
+    color: green;
+}

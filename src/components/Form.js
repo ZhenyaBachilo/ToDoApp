@@ -17,22 +17,40 @@ export default class Form extends React.Component {
 
     handleSubmit = (event)=> {
         event.preventDefault();
-
-        if(!this.state.value.trim()) {
+        if(this.props.add){
+            if(!this.state.value.trim()) {
+                this.setState({
+                    value:''
+                });
+                return;
+            }
+            this.props.add(this.state.value);
+            this.setState({
+                value:'',
+            })
+            
+        }else{
+            if(!this.state.value.trim()) {
+                this.setState({
+                    value:''
+                });
+                return;
+            }else if(!this.props.categoryId){
+                return;
+            }
+            this.props.addTask(this.state.value,this.props.categoryId);
             this.setState({
                 value:''
-            });
-            return;
-        }
-        this.props.add(this.state.value, this.props.categoryId );
-        this.setState({
-            value:''
-        })
-    }
+            })
 
+        }
+
+    }
+    
     render(){
+        
         return(
-            <form onSubmit ={this.handleSubmit}>
+            <form onSubmit ={this.handleSubmit} >
                 <label><span>{this.props.headerText}</span>
                     <input type='text' onChange={this.handleChange} value={this.state.value}></input>
                 </label>

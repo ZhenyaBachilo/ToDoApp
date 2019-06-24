@@ -4,14 +4,16 @@ import uniqid from 'uniqid';
 export const addCategoryAction = categoryName => ({
     type: C.ADD_CATEGORY,
     categoryName,
-    id: uniqid(),
-    filter: C.SHOW_ALL,
-    selected: true
+    id: uniqid()
+    
 });
 
-
-
-
+// export const ActivateCategoryAction = id =>({
+//     type: C.ACTIVATE_CATEGORY,
+//     id,
+//     active: true
+// })
+    
 
 export const addTaskAction = (text,categoryId) => {
     return({
@@ -23,18 +25,33 @@ export const addTaskAction = (text,categoryId) => {
     });
 }
 
+export const deleteCategory = id => {
+    return({
+        type: C.DELETE_CATEGORY,
+        id
+    })
+}
+
+
+export const deleteTask = id => {
+    return({
+        type: C.DELETE_TASK,
+        id:id
+    })
+}
+
 export const selectedCategoryId = (categoryId) => {
     return(
         {
             type: C.SELECTED_CATEGORY,
-            selectedCategoryId: categoryId
+            selectedCategoryId: categoryId,
         }
     );
 }
 
-export const toggleToDoComplete = (id)=>{
+export const toggleToDoCompleteAction = (id)=>{
     return({
         type: C.TOGGLE_TODO,
-        id
+        id:id
     })
 }

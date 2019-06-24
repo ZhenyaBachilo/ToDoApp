@@ -2,26 +2,35 @@ import React from 'react';
 
 
 export class CategoryListItems extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            key:this.props.category.id
+
         }
     }
 
 
     handleClick = (event) => {
-
-        this.setState({
-            key: this.props.category.id
-        })
-        this.props.selectedCategoryId(this.state.key);
-        
+        if (this.props.selectedCategory === this.props.category.id) {
+            return this.props.selectedCategoryId("");
+        }
+        this.props.selectedCategoryId(this.props.category.id);
     }
 
-    render(){
-        return(  
-            <li onClick={this.handleClick}>{this.props.category.categoryName}</li>
+    deleteCategory = () => {
+        this.props.deleteCategory(this.props.category.id);
+    }
+
+    render() {
+        return (
+            <li
+                onClick={this.handleClick}
+                className={this.props.selectedCategory === this.props.category.id ? 'activeCategoryItem' : 'categoryItem'}
+
+            >
+                <span>{this.props.category.categoryName}</span>
+                <button onClick={this.deleteCategory}>delete</button>
+            </li>
         )
     }
 }

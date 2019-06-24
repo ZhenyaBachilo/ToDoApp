@@ -10,13 +10,16 @@ export const CategoriesReducer = (state = initialState, action) => {
 
                 {
                 categoryName: action.categoryName,
-                id: action.id,
-                tasks: [],
-                filter: action.filter,
-                selected: action.selected
+                id: action.id
                 }
             ]
             )
+        case C.DELETE_CATEGORY:
+            return state.filter((category)=>{
+                if(!(category.id===action.id)){
+                    return  category;
+                }
+            })
 
         default:
             return state;
