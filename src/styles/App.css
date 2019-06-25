@@ -1,21 +1,23 @@
-.mainApp{
-    border: 1px solid black;
+
+.app{
     width:80%;
-    height:600px;
+    border: 1px solid black;
     margin: 0 auto;
+}
+.mainBody{
     display: flex;
 }
-
 .categoryField{
     width: 40%;
     background-color: lightblue;
-    height:100%;
+    height:300px;
+    border: 1px solid black;
 }
-
 .toDosField{
     background-color: lightyellow;
-    height:100%;
+    height:300px;
     width: 60%;
+    border: 1px solid black;
 }
 
 .activeCategory{

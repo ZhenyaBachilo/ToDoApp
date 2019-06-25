@@ -38,7 +38,6 @@ export const TaskReducer = (state = [], action) => {
                 }
             });
 
-
         default:
             return state
     }

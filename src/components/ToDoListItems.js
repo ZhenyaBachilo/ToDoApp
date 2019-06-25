@@ -1,8 +1,6 @@
 import React from 'react';
 
-
 export class ToDoListItems extends React.Component {
-
     constructor(props) {
         super(props);
     }
@@ -19,7 +17,14 @@ export class ToDoListItems extends React.Component {
     render() {
         if (this.props.task.selectedCategoryId === this.props.categoryId) {
             return (
-                <li onClick={this.toggleClass}><span className={this.props.task.completed ? "completedTask" : "task"}>{this.props.task.text}</span><button onClick={this.deleteTask}>delete</button></li>
+                <li onClick={this.toggleClass}>
+                    <span className={this.props.task.completed ? "completedTask" : "task"}>
+                        {this.props.task.text}
+                    </span>
+                    <button onClick={this.deleteTask}>
+                        delete
+                    </button>
+                </li>
             )
         }
         return null;

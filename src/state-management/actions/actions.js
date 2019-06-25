@@ -7,20 +7,13 @@ export const addCategoryAction = categoryName => ({
     id: uniqid()
     
 });
-
-// export const ActivateCategoryAction = id =>({
-//     type: C.ACTIVATE_CATEGORY,
-//     id,
-//     active: true
-// })
     
-
 export const addTaskAction = (text,categoryId) => {
     return({
         type: C.ADD_TASK,
         text,
         id: uniqid(),
-        completed:'',
+        completed: false,
         selectedCategoryId: categoryId
     });
 }
@@ -54,4 +47,12 @@ export const toggleToDoCompleteAction = (id)=>{
         type: C.TOGGLE_TODO,
         id:id
     })
+}
+
+export const setVisibilityFilter = (filter) =>{
+    console.log(filter);
+    return {
+        type: C.SET_VISIBILITY_FILTER,
+        filter
+    }
 }

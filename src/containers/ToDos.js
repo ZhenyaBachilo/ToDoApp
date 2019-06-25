@@ -8,6 +8,16 @@ import {ToDoList} from '../components/ToDoList';
 
 
 function ToDos(props) {
+
+    if (props.categoryId === null) {
+        return (
+            <div className='toDosField'> Please, create a category to add a task!</div>
+        )
+    } else if (props.categoryId === '') {
+        return (
+            <div className='toDosField'> Please, select a category!</div>
+        )
+    }
     return(
         <div className='toDosField'>
             <Form categoryId={props.categoryId} headerText={'Add new Task'} addTask={props.addTask}/>
@@ -16,6 +26,7 @@ function ToDos(props) {
             tasks={props.tasks} 
             toggleCompleteTask={props.toggleCompleteTask}
             deleteTask={props.deleteTask}
+            filter={props.filter}
             />
         </div>
     )
@@ -28,7 +39,8 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
     return {
         tasks: state.TaskReducer,
-        categoryId: state.selectedCategoryIdReducer
+        categoryId: state.selectedCategoryIdReducer,
+        filter: state.FilterTasks
     }
 }
 
