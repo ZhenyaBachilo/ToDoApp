@@ -1,10 +1,10 @@
 import React from 'react';
 import Form from '../components/Form';
-import {connect} from 'react-redux';
-import {addTaskAction} from '../state-management/actions/actions';
-import {toggleToDoCompleteAction} from '../state-management/actions/actions';
-import {deleteTask} from '../state-management/actions/actions';
-import {ToDoList} from '../components/ToDoList';
+import { connect } from 'react-redux';
+import { addTaskAction } from '../state-management/actions/actions';
+import { toggleToDoCompleteAction } from '../state-management/actions/actions';
+import { deleteTask } from '../state-management/actions/actions';
+import { ToDoList } from '../components/ToDoList';
 
 
 function ToDos(props) {
@@ -18,23 +18,23 @@ function ToDos(props) {
             <div className='toDosField'> Please, select a category!</div>
         )
     }
-    return(
+    return (
         <div className='toDosField'>
-            <Form categoryId={props.categoryId} headerText={'Add new Task'} addTask={props.addTask}/>
-            <ToDoList 
-            categoryId={props.categoryId} 
-            tasks={props.tasks} 
-            toggleCompleteTask={props.toggleCompleteTask}
-            deleteTask={props.deleteTask}
-            filter={props.filter}
+            <Form categoryId={props.categoryId} headerText={'Add new Task'} addTask={props.addTask} />
+            <ToDoList
+                categoryId={props.categoryId}
+                tasks={props.tasks}
+                toggleCompleteTask={props.toggleCompleteTask}
+                deleteTask={props.deleteTask}
+                filter={props.filter}
             />
         </div>
     )
 }
 const mapDispatchToProps = {
     addTask: addTaskAction,
-    toggleCompleteTask:toggleToDoCompleteAction,
-    deleteTask:deleteTask
+    toggleCompleteTask: toggleToDoCompleteAction,
+    deleteTask: deleteTask
 }
 const mapStateToProps = (state) => {
     return {
@@ -45,6 +45,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps,
-mapDispatchToProps
+    mapDispatchToProps
 )(ToDos);
 

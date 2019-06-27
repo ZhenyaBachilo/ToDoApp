@@ -33,3 +33,17 @@
     font-size: 2em;
     color: green;
 }
+
+.progressBar{
+    
+    height: 10px;
+    width: 80%;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+.filler{
+    background: #82f5e9;
+    height:100%;
+    border-radius: inherit;
+    transition: width .3s ease-in;
+}
