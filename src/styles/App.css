@@ -12,12 +12,14 @@
     background-color: lightblue;
     height:300px;
     border: 1px solid black;
+    overflow: scroll;
 }
 .toDosField{
     background-color: lightyellow;
     height:300px;
     width: 60%;
     border: 1px solid black;
+    overflow: scroll;
 }
 
 .activeCategory{

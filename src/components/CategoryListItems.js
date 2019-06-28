@@ -14,7 +14,8 @@ export class CategoryListItems extends React.Component {
         if (this.props.selectedCategory === this.props.category.id) {
             return this.props.selectedCategoryId("");
         }
-        this.props.selectedCategoryId(this.props.category.id);
+        this.props.searchTaskText('');
+        this.props.selectedCategoryId(this.props.category.id); 
     }
 
     deleteCategory = () => {

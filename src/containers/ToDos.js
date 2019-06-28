@@ -5,6 +5,7 @@ import { addTaskAction } from '../state-management/actions/actions';
 import { toggleToDoCompleteAction } from '../state-management/actions/actions';
 import { deleteTask } from '../state-management/actions/actions';
 import { ToDoList } from '../components/ToDoList';
+import { selectedCategoryId } from '../state-management/actions/actions';
 
 
 function ToDos(props) {
@@ -13,7 +14,23 @@ function ToDos(props) {
         return (
             <div className='toDosField'> Please, create a category to add a task!</div>
         )
-    } else if (props.categoryId === '') {
+    } else if (props.categoryId === ''&&props.searchedText){
+        return (
+            <div className='toDosField'>
+                <Form categoryId={props.categoryId} headerText={'Add new Task'} addTask={props.addTask} />
+                <ToDoList
+                    categoryId={props.categoryId}
+                    tasks={props.tasks}
+                    toggleCompleteTask={props.toggleCompleteTask}
+                    deleteTask={props.deleteTask}
+                    filter={props.filter}
+                    searchedText={props.searchedText}
+                    selectedCategoryIdAction={props.selectedCategoryIdAction}
+                />
+            </div>
+        )
+    }
+    else if (props.categoryId === '') {
         return (
             <div className='toDosField'> Please, select a category!</div>
         )
@@ -27,6 +44,8 @@ function ToDos(props) {
                 toggleCompleteTask={props.toggleCompleteTask}
                 deleteTask={props.deleteTask}
                 filter={props.filter}
+                searchedText={props.searchedText}
+                selectedCategoryIdAction={props.selectedCategoryIdAction}
             />
         </div>
     )
@@ -34,13 +53,16 @@ function ToDos(props) {
 const mapDispatchToProps = {
     addTask: addTaskAction,
     toggleCompleteTask: toggleToDoCompleteAction,
-    deleteTask: deleteTask
+    deleteTask: deleteTask,
+    selectedCategoryIdAction: selectedCategoryId
+
 }
 const mapStateToProps = (state) => {
     return {
         tasks: state.TaskReducer,
         categoryId: state.selectedCategoryIdReducer,
-        filter: state.FilterTasks
+        filter: state.FilterTasks,
+        searchedText: state.searchTaskReducer
     }
 }
 

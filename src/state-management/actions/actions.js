@@ -18,6 +18,7 @@ export const addTaskAction = (text,categoryId) => {
     });
 }
 
+
 export const deleteCategory = id => {
     return({
         type: C.DELETE_CATEGORY,
@@ -50,9 +51,15 @@ export const toggleToDoCompleteAction = (id)=>{
 }
 
 export const setVisibilityFilter = (filter) =>{
-    console.log(filter);
     return {
         type: C.SET_VISIBILITY_FILTER,
         filter
+    }
+}
+
+export const searchTask = (value) => {
+    return{
+        type: C.SEARCH_TASK,
+        value
     }
 }

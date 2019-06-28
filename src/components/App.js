@@ -11,9 +11,9 @@ class App extends React.Component {
     render() {
         return (
             <div className='app'>
-                <Header />
+                <Header/>
                 <div className='mainBody'>
-                    <Categories />
+                    <Categories/>
                     <ToDos />
                 </div>
                 <Footer />

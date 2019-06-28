@@ -15,7 +15,22 @@ export class ToDoListItems extends React.Component {
     }
 
     render() {
-        if (this.props.task.selectedCategoryId === this.props.categoryId) {
+        if(this.props.searchedText.trim()){
+            this.props.selectedCategoryIdAction('');
+            return (
+                <li onClick={this.toggleClass}>
+                    <span className={this.props.task.completed ? "completedTask" : "task"}>
+                        {this.props.task.text}
+                    </span>
+                    <button onClick={this.deleteTask}>
+                        delete
+                    </button>
+                </li>
+            )
+
+        }
+  
+        else if (this.props.task.selectedCategoryId === this.props.categoryId) {
             return (
                 <li onClick={this.toggleClass}>
                     <span className={this.props.task.completed ? "completedTask" : "task"}>

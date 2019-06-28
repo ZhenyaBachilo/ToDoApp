@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addCategoryAction } from '../state-management/actions/actions';
 import { selectedCategoryId } from '../state-management/actions/actions';
 import { deleteCategory } from '../state-management/actions/actions';
+import { searchTask } from '../state-management/actions/actions';
 
 function Categories(props) {
     return (
@@ -19,6 +20,8 @@ function Categories(props) {
                 categories={props.categories}
                 selectedCategoryId={props.selectedCategoryId}
                 deleteCategory={props.deleteCategory}
+                searchTaskText={props.searchTaskText}
+
             />
         </div>
     )
@@ -27,14 +30,15 @@ function Categories(props) {
 const mapDispatchToProps = {
     addCategory: addCategoryAction,
     selectedCategoryId: selectedCategoryId,
-    deleteCategory: deleteCategory
+    deleteCategory: deleteCategory,
+    searchTaskText:searchTask
 }
 
 const mapStateToProps = (state) => {
 
     return {
         categories: state.CategoriesReducer,
-        selectedCategory: state.selectedCategoryIdReducer
+        selectedCategory: state.selectedCategoryIdReducer,
     }
 }
 
