@@ -1,4 +1,5 @@
 import React from 'react';
+import { ListGroup, Badge } from 'react-bootstrap';
 
 export class ToDoListItems extends React.Component {
     constructor(props) {
@@ -15,31 +16,42 @@ export class ToDoListItems extends React.Component {
     }
 
     render() {
-        if(this.props.searchedText.trim()){
+        if (this.props.searchedText.trim()) {
             this.props.selectedCategoryIdAction('');
             return (
-                <li onClick={this.toggleClass}>
+                <ListGroup.Item as='li'
+                    variant="light"
+                    onClick={this.toggleClass}>
                     <span className={this.props.task.completed ? "completedTask" : "task"}>
                         {this.props.task.text}
                     </span>
-                    <button onClick={this.deleteTask}>
+                    <Badge pill
+                        variant="info"
+                        onClick={this.deleteTask}>
                         delete
-                    </button>
-                </li>
+                    </Badge>
+                </ListGroup.Item>
             )
 
         }
-  
+
         else if (this.props.task.selectedCategoryId === this.props.categoryId) {
             return (
-                <li onClick={this.toggleClass}>
+                <ListGroup.Item as='li'
+                    variant="light"
+                    className='listItems'
+                    onClick={this.toggleClass}>
                     <span className={this.props.task.completed ? "completedTask" : "task"}>
                         {this.props.task.text}
                     </span>
-                    <button onClick={this.deleteTask}>
+                    <Badge pill
+                        className='deleteButton'
+                        variant="info"
+                        onClick={this.deleteTask}
+                    >
                         delete
-                    </button>
-                </li>
+                    </Badge>
+                </ListGroup.Item >
             )
         }
         return null;

@@ -9,10 +9,10 @@ import App from "./components/App.js";
 const store = createStore(allReducers);
 
 ReactDOM.render(
-<Provider store={store}>
-    <App />
-</Provider>, 
-document.getElementById("root")
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
 );
 
-store.subscribe(()=>{console.log(store.getState())});
+store.subscribe(() => { console.log(store.getState()) });

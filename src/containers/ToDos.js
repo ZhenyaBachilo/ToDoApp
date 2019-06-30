@@ -9,12 +9,11 @@ import { selectedCategoryId } from '../state-management/actions/actions';
 
 
 function ToDos(props) {
-
     if (props.categoryId === null) {
         return (
-            <div className='toDosField'> Please, create a category to add a task!</div>
+            <div className='toDosField'> <div className='notification'>Please, create a category to add a task!</div></div>
         )
-    } else if (props.categoryId === ''&&props.searchedText){
+    } else if (props.categoryId === '' && props.searchedText) {
         return (
             <div className='toDosField'>
                 <Form categoryId={props.categoryId} headerText={'Add new Task'} addTask={props.addTask} />
@@ -32,12 +31,16 @@ function ToDos(props) {
     }
     else if (props.categoryId === '') {
         return (
-            <div className='toDosField'> Please, select a category!</div>
+            <div className='toDosField'> <div className='notification'>Please, select a category!</div></div>
         )
     }
     return (
         <div className='toDosField'>
-            <Form categoryId={props.categoryId} headerText={'Add new Task'} addTask={props.addTask} />
+            <Form
+                categoryId={props.categoryId}
+                addTask={props.addTask}
+                inputPlaceholder={'Add new Task'}
+            />
             <ToDoList
                 categoryId={props.categoryId}
                 tasks={props.tasks}

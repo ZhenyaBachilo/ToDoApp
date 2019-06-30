@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setVisibilityFilter } from '../state-management/actions/actions';
-import {C} from '../state-management/constants/constants';
+import { C } from '../state-management/constants/constants';
+import { Button, ButtonToolbar } from 'react-bootstrap';
+
 
 const BTN_Filters = [
     {
@@ -21,20 +23,22 @@ const BTN_Filters = [
 function Footer({ selectFilter }) {
     return (
         <div className='footer'>
-            <div className='btnGroup'>
-                { BTN_Filters.map(({ text, filter }) => {
+            <ButtonToolbar className='ButtonToolbar_edit'>
+                <span>Filter tasks:</span>
+                {BTN_Filters.map(({ text, filter }) => {
                     return (
-                        <button
+                        <Button
+                            size="sm"
+                            variant="outline-info"
                             key={filter}
                             onClick={() => selectFilter(filter)}
                         >{text}
-                        </button>
+                        </Button>
                     )
                 })}
-            </div>
+            </ButtonToolbar>
         </div>
     )
-
 }
 
 const mapStateToProps = (state) => {

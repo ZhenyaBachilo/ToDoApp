@@ -13,15 +13,15 @@ function Categories(props) {
             <Form
                 selectedCategoryId={props.selectedCategoryId}
                 categories={props.categories}
-                headerText={'Add new Category'}
-                add={props.addCategory} />
+                inputPlaceholder={'Add new Category'}
+                add={props.addCategory}
+            />
             <CategoryList
                 selectedCategory={props.selectedCategory}
                 categories={props.categories}
                 selectedCategoryId={props.selectedCategoryId}
                 deleteCategory={props.deleteCategory}
                 searchTaskText={props.searchTaskText}
-
             />
         </div>
     )
@@ -31,11 +31,10 @@ const mapDispatchToProps = {
     addCategory: addCategoryAction,
     selectedCategoryId: selectedCategoryId,
     deleteCategory: deleteCategory,
-    searchTaskText:searchTask
+    searchTaskText: searchTask
 }
 
 const mapStateToProps = (state) => {
-
     return {
         categories: state.CategoriesReducer,
         selectedCategory: state.selectedCategoryIdReducer,

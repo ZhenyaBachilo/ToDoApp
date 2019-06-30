@@ -1,27 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {ProgressBar} from '../components/ProgressBar';
-import {SearchBar} from '../components/SearchBar';
-import {searchTask} from '../state-management/actions/actions';
+import { ProgressBar } from '../components/ProgressBar';
+import { SearchBar } from '../components/SearchBar';
+import { searchTask } from '../state-management/actions/actions';
 
 
-const Header = ({tasks,searchTask,resetSearchInput}) =>{
-    return(
+const Header = ({ tasks, searchTask, resetSearchInput }) => {
+    return (
         <div className='header'>
             <SearchBar tasks={tasks} searchTask={searchTask} />
-            <ProgressBar tasks={tasks}/>
+            <ProgressBar tasks={tasks} />
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    return{
+    return {
         tasks: state.TaskReducer
-    }   
+    }
 }
 
-const mapDispatchToProps ={
+const mapDispatchToProps = {
     searchTask: searchTask
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Filler = ({ tasks,perc }) => {
+export const Filler = ({ tasks, perc }) => {
 
     const CountPercentage = () => {
         if (!tasks.filter(task => task.completed).length) {
@@ -11,10 +11,7 @@ export const Filler = ({ tasks,perc }) => {
     }
     const percentage = CountPercentage();
 
-
     return (
-        <>
-            <div className='filler' style={{ width: percentage + '%' }}></div>
-        </>
+        <div className='filler' style={{ width: percentage + '%' }}></div>
     )
 }

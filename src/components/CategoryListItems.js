@@ -1,21 +1,20 @@
 import React from 'react';
+import { ListGroup, Badge } from 'react-bootstrap';
 
 
 export class CategoryListItems extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
         }
     }
-
 
     handleClick = (event) => {
         if (this.props.selectedCategory === this.props.category.id) {
             return this.props.selectedCategoryId("");
         }
         this.props.searchTaskText('');
-        this.props.selectedCategoryId(this.props.category.id); 
+        this.props.selectedCategoryId(this.props.category.id);
     }
 
     deleteCategory = () => {
@@ -24,14 +23,22 @@ export class CategoryListItems extends React.Component {
 
     render() {
         return (
-            <li
+            <ListGroup.Item as='li'
                 onClick={this.handleClick}
-                className={this.props.selectedCategory === this.props.category.id ? 'activeCategoryItem' : 'categoryItem'}
+                className={this.props.selectedCategory === this.props.category.id ? 'activeCategoryItem listItems' : 'categoryItem listItems'}
+                variant="light"
 
             >
                 <span>{this.props.category.categoryName}</span>
-                <button onClick={this.deleteCategory}>delete</button>
-            </li>
+                <Badge
+                    pill
+                    className='deleteButton'
+                    variant="info"
+                    onClick={this.deleteCategory}
+                >
+                    delete
+                </Badge>
+            </ListGroup.Item>
         )
     }
 }

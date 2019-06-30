@@ -6,20 +6,18 @@ import ToDos from '../containers/ToDos';
 import Footer from '../containers/Footer';
 import Header from '../containers/Header';
 
-
 class App extends React.Component {
     render() {
         return (
             <div className='app'>
-                <Header/>
+                <Header />
                 <div className='mainBody'>
-                    <Categories/>
+                    <Categories />
                     <ToDos />
                 </div>
                 <Footer />
             </div>
-
-        );
+        )
     }
 }
 export default App;

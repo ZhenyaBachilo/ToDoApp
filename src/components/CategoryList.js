@@ -1,10 +1,11 @@
 import React from 'react';
 import { CategoryListItems } from './CategoryListItems';
+import { ListGroup } from 'react-bootstrap';
 
 
-export function CategoryList({ categories, selectedCategoryId, selectedCategory,deleteCategory,searchTaskText}) {
+export function CategoryList({ categories, selectedCategoryId, selectedCategory, deleteCategory, searchTaskText }) {
     return (
-        <ul>
+        <ListGroup as='ul'>
             {categories.map(category =>
                 <CategoryListItems
                     key={category.id}
@@ -14,7 +15,7 @@ export function CategoryList({ categories, selectedCategoryId, selectedCategory,
                     deleteCategory={deleteCategory}
                     searchTaskText={searchTaskText}
                 />)}
-        </ul>
+        </ListGroup>
     )
 }
 
